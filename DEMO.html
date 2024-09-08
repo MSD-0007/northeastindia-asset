@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your perfect travel companion. Explore beautiful destinations, popular attractions, and travel tips!">
+    <title>Tourism Guide</title>
+    <link rel="stylesheet" href="DEMO.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>NEIndia Guide</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#map">Map</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search destinations...">
+                <button id="search-btn">Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <video autoplay muted loop id="bg-video">
+                <source src="https://videos.pexels.com/video-files/2098989/2098989-uhd_2560_1440_30fps.mp4" type="video/mp4">
+                
+            </video>
+            <h2>Welcome to Northeast India</h2>
+            <p>Find the best places to visit around the Northeast India with our guide!</p>
+            <a href="#destinations" class="btn">Explore Now</a>
+        </div>
+    </section>
+
+    <section id="destinations" class="destinations-section">
+        <h2>Popular Destinations</h2>
+        <div class="destination-cards">
+            <div class="card">
+                <a href="meghalaya.html">
+                <img src="https://www.trekpanda.in/system/images/000/637/280/bfaeabc8017e0833a1a7d82fe2dc19b7/banner/mondakranta-saikia-Xqw7XgnvU3w-unsplash.jpg?1711374161" alt="MEGHALAYA">
+                <h3>MEGHALAYA</h3>
+                <p>Where Clouds Whisper and Nature Sings.</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="assam.html">
+                <img src="https://www.ibef.org/assets/images/states/Assam-2.jpg" alt="ASSAM">
+                <h3>ASSAM</h3>
+                <p>Gateway to the Northeast , Where Nature Meets Heritage.</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="arunachal.html">
+                <img src="https://media1.thrillophilia.com/filestore/8clfg1cvdzgobeeur099te0my6i7_1539087230_shutterstock_748402771.jpg?w=576&h=650" alt="ARUNACHAL PRADESH">
+                <h3>ARUNACHAL PRADESH</h3>
+                <p>A Spiritual Haven in the Lap of The Himalayas.</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="Sikkim.html">
+                <img src="https://www.tripsavvy.com/thmb/LV9cMvf0PkFRA1hO6-CfTyFBxgs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-606222988-5a823cff1d64040037dfd9a1.jpg" alt="ARUNACHAL PRADESH">
+                <h3>SIKKIM</h3>
+                <p>Small but beautiful natures paradise.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- <script>
+        var map = L.map('map').setView([26.2006, 92.9376], 6); // Coordinates for Northeast India
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([26.2006, 92.9376]).addTo(map)
+            .bindPopup('Northeast India')
+            .openPopup();
+    </script> -->
+    <button id="chatbot-toggle" class="btn">Need Help?</button>
+    <div id="chatbot-container" class="hidden">
+        <div id="chat-window">
+            <div id="chat-output"></div>
+            <input type="text" id="chat-input" placeholder="Type your question...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <!-- <section id="tours" class="tours-section">
+        <h2>Guided Tours</h2>
+        <p>Join our guided tours for a deep cultural experience and adventure.</p>
+        <div class="tour-packages">
+            <div class="package">
+                <h3>Europe Tour</h3>
+                <p>10 Days - From $2000</p>
+            </div>
+            <div class="package">
+                <h3>Asian Adventure</h3>
+                <p>12 Days - From $1800</p>
+            </div>
+            <div class="package">
+                <h3>Africa Safari</h3>
+                <p>7 Days - From $1500</p>
+            </div>
+        </div>
+    </section> -->
+
+    <footer id="contact" class="footer">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Email: netourismguide@gmail.com</p>
+            <p>Phone: +91 1234567890</p>
+        </div>
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>
