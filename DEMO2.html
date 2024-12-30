@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NE India Guide</title>
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-300 font-sans">
+
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto h-12 flex items-center">
+        <nav class="space-x-4">
+            <a href="#" class="text-gray-300 hover:bg-green-400 px-2 py-1 rounded">Home</a>
+            <a href="#" class="text-gray-300 hover:bg-green-400 px-2 py-1 rounded">Destinations</a>
+            <a href="#" class="text-gray-300 hover:bg-green-400 px-2 py-1 rounded">Map</a>
+            <a href="#" class="text-gray-300 hover:bg-green-400 px-2 py-1 rounded">Login</a>
+        </nav>
+    </header>
+
+    <!-- Slider Section -->
+    <div class="slider relative h-screen w-full overflow-hidden mt-[-50px]">
+        <div class="list flex transition-transform duration-500">
+            <!-- Slide 1 -->
+            <div class="item w-full h-full relative">
+                <img class="w-full h-full object-cover" src="https://www.ibef.org/assets/images/states/Assam-2.jpg" alt="ASSAM">
+                <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-center text-white">
+                    <h1 class="text-5xl font-bold">ASSAM</h1>
+                    <p class="mt-4">Welcome to Northeast India</p>
+                    <a href="assam.html" class="mt-4 inline-block bg-gray-300 text-black px-4 py-2 rounded">SEE MORE</a>
+                </div>
+            </div>
+            <!-- Repeat similar blocks for each slide -->
+        </div>
+        <!-- Next & Prev Arrows -->
+        <div class="absolute top-1/2 left-0 right-0 flex justify-between px-4">
+            <button class="prev bg-green-400 text-white p-3 rounded-full hover:bg-green-600">&lt;</button>
+            <button class="next bg-green-400 text-white p-3 rounded-full hover:bg-green-600">&gt;</button>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-card bg-white shadow-lg rounded-lg my-8 p-4 max-w-6xl mx-auto">
+        <h2 class="text-center text-2xl font-bold mb-4">Explore Northeast India</h2>
+        <div id="map" class="map-container h-96 rounded-lg"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-4">
+        <div class="text-center space-y-2">
+            <h2 class="text-xl">Contact Us</h2>
+            <p>Email: netourismguide@gmail.com</p>
+            <p>Phone: +91 1234567890</p>
+        </div>
+        <div class="social-media mt-4 text-center space-x-4">
+            <a href="#" class="hover:text-yellow-500">Facebook</a>
+            <a href="#" class="hover:text-yellow-500">Instagram</a>
+            <a href="#" class="hover:text-yellow-500">Twitter</a>
+        </div>
+        <div class="mt-4">
+            <h3 class="text-center">Leave a Review</h3>
+            <form id="review-form" class="flex flex-col items-center space-y-2">
+                <input type="text" id="reviewer-name" class="border border-gray-300 p-2 w-3/4" placeholder="Your Name" required>
+                <textarea id="review-text" class="border border-gray-300 p-2 w-3/4" placeholder="Write your review here..." required></textarea>
+                <button type="submit" class="bg-yellow-500 px-4 py-2 rounded hover:bg-yellow-600">Submit Review</button>
+            </form>
+        </div>
+    </footer>
+
+    <!-- Import Leaflet.js for the map -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- External JavaScript file -->
+    <script src="DEMO1.js"></script>
+</body>
+</html>

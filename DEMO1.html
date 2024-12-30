@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NE India Guide</title>
+    <link rel="stylesheet" href="DEMO1.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <!-- <a href="#">About</a> -->
+            <a href="#">Destinations</a>
+            <a href="#">Map</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+
+    <!-- <div class="static-title">
+        <h1>NE INDIA GUIDE</h1>
+    </div> -->
+    
+    <div class="slider">
+
+
+        <div class="list">
+
+            <div class="item">
+                <img src="https://www.ibef.org/assets/images/states/Assam-2.jpg" alt="ASSAM">
+
+                <div class="content">
+                    <div class="title">NE INDIA GUIDE</div>
+                    <div class="type">ASSAM</div>
+                    <div class="description">
+                        <h2>Welcome to Northeast India</h2>
+                        <p>Find the best places to visit around the Northeast India with our guide!</p>
+
+                    </div>
+                    <div class="button">
+                        <a href="assam.html"><button>SEE MORE</button></a> <!-- Assam -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="https://www.trekpanda.in/system/images/000/637/280/bfaeabc8017e0833a1a7d82fe2dc19b7/banner/mondakranta-saikia-Xqw7XgnvU3w-unsplash.jpg?1711374161" alt="MEGHALAYA">
+
+                <div class="content">
+                    <div class="title">NE INDIA GUIDE</div>
+                    <div class="type">MEGHALAYA</div>
+                    <div class="description">
+                        <p>Where Clouds Whisper and Nature Sings.</p>
+                    </div>
+                    <div class="button">
+                        <a href="meghalaya.html"><button>SEE MORE</button></a> <!-- Meghalaya -->
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="https://media1.thrillophilia.com/filestore/8clfg1cvdzgobeeur099te0my6i7_1539087230_shutterstock_748402771.jpg?w=576&h=650" alt="ARUNACHAL PRADESH">
+
+                <div class="content">
+                    <div class="title">NE INDIA GUIDE</div>
+                    <div class="type">ARUNACHAL PRADESH</div>
+                    <div class="description">
+                        <p>A Spiritual Haven in the Lap of The Himalayas.</p>
+
+                    </div>
+                    <div class="button">
+                        <a href="arunachal.html"><button>SEE MORE</button></a> <!-- Arunachal Pradesh -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="https://www.tripsavvy.com/thmb/LV9cMvf0PkFRA1hO6-CfTyFBxgs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-606222988-5a823cff1d64040037dfd9a1.jpg" alt="SIKKIM">
+
+                <div class="content">
+                    <div class="title">NE INDIA GUIDE</div>
+                    <div class="type">SIKKIM</div>
+                    <div class="description">
+                        <p>Small, but a beautiful paradise of Nature.</p>
+                    </div>
+                    <div class="button">
+                        <a href="sikkim.html"><button>SEE MORE</button></a> <!-- Sikkim -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="thumbnail">
+
+            <div class="item">
+                <img src="https://www.ibef.org/assets/images/states/Assam-2.jpg" alt="ASSAM">
+            </div>
+            <div class="item">
+                <img src="https://www.trekpanda.in/system/images/000/637/280/bfaeabc8017e0833a1a7d82fe2dc19b7/banner/mondakranta-saikia-Xqw7XgnvU3w-unsplash.jpg?1711374161" alt="MEGHALAYA">
+            </div>
+            <div class="item">
+                <img src="https://media1.thrillophilia.com/filestore/8clfg1cvdzgobeeur099te0my6i7_1539087230_shutterstock_748402771.jpg?w=576&h=650" alt="ARUNACHAL PRADESH">
+            </div>
+            <div class="item">
+                <img src="https://www.tripsavvy.com/thmb/LV9cMvf0PkFRA1hO6-CfTyFBxgs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-606222988-5a823cff1d64040037dfd9a1.jpg" alt="SIKKIM">
+            </div>
+
+        </div>
+
+
+        <div class="nextPrevArrows">
+            <button class="prev"> < </button>
+            <button class="next"> > </button>
+        </div>
+
+
+    </div>
+
+    <div id="map" class="map-container"></div> <!-- Un-comment this line -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Initialize the map using Leaflet
+    var map = L.map('map').setView([26.2006, 92.9376], 6); // Coordinates for Northeast India
+
+    // Add a tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add markers for the states
+    var states = [
+        { name: "Assam", coords: [26.2006, 92.9376], description: "Gateway to the Northeast" },
+        { name: "Meghalaya", coords: [25.467, 91.3662], description: "Where Clouds Whisper" },
+        { name: "Arunachal Pradesh", coords: [27.0952, 93.3624], description: "Spiritual Haven" },
+        { name: "Sikkim", coords: [27.5330, 88.6139], description: "Nature's Paradise" }
+    ];
+
+    states.forEach(function(state) {
+        L.marker(state.coords).addTo(map)
+          .bindPopup('<b>' + state.name + '</b><br>' + state.description);
+    });
+</script>
+
+
+    <button id="chatbot-toggle" class="btn">Need Help?</button>
+    <div id="chatbot-container" class="hidden">
+        <div id="chat-window">
+            <div id="chat-output"></div>
+            <input type="text" id="chat-input" placeholder="Type your question...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    
+    <footer id="contact" class="footer">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Email: netourismguide@gmail.com</p>
+            <p>Phone: +91 1234567890</p>
+        </div>
+
+         <!-- Add a Review Form -->
+         <div class="review-section">
+            <h2>Leave a Review</h2>
+            <form id="review-form">
+                <input type="text" id="reviewer-name" placeholder="Your Name" required>
+                <textarea id="review-text" placeholder="Write your review here..." required></textarea>
+                <button type="submit" class="btn">Submit Review</button>
+            </form>
+            
+            <h3>Recent Reviews</h3>
+            <div id="reviews-container">
+                <!-- Reviews will be displayed here -->
+            </div>
+        </div>
+
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+        </div>
+    </footer>
+    <script src="DEMO1.js"></script>
+</body>
+</html>
