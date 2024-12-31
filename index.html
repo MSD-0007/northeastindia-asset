@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Your perfect travel companion. Explore beautiful destinations, popular attractions, and travel tips!">
-    <title>Tourism Guide</title>
+    <title>NE India Guide</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     
@@ -21,7 +21,7 @@
     <header>
         <nav>
             <div class="logo">
-                <h1>NEIndia Guide</h1>
+                <h1>NE India Guide</h1>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -80,15 +80,67 @@
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
+        // Initialize the map
         var map = L.map('map').setView([26.2006, 92.9376], 6); // Coordinates for Northeast India
 
+        // Add a tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        L.marker([26.2006, 92.9376]).addTo(map)
-            .bindPopup('Northeast India')
-            .openPopup();
+        // Add markers and interactive regions
+        var states = [
+            {
+                name: "Assam",
+                coords: [26.2006, 92.9376],
+                description: "Gateway to the Northeast, Where Nature Meets Heritage."
+            },
+            {
+                name: "Meghalaya",
+                coords: [25.467, 91.3662],
+                description: "Where Clouds Whisper and Nature Sings."
+            },
+            {
+                name: "Arunachal Pradesh",
+                coords: [27.0952, 93.3624],
+                description: "A Spiritual Haven in the Lap of The Himalayas."
+            },
+            {
+                name: "Sikkim",
+                coords: [27.5330, 88.6139],
+                description: "Small but beautiful nature's paradise."
+            }
+        ];
+
+        states.forEach(function(state) {
+            L.marker(state.coords).addTo(map)
+                .bindPopup('<b>' + state.name + '</b><br>' + state.description)
+                .openPopup();
+        });
+
+        // Add GeoJSON layer for detailed regions if available
+        // Example:
+        /*
+        var geojsonFeature = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "name": "Arunachal Pradesh",
+                        "popupContent": "A Spiritual Haven in the Lap of The Himalayas."
+                    },
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [/* GeoJSON coordinates array * / ]
+                    }
+                }
+                // Add more features for other regions
+            ]
+        };
+
+        L.geoJSON(geojsonFeature).addTo(map);
+        */
     </script>
     <button id="chatbot-toggle" class="btn">Need Help?</button>
     <div id="chatbot-container" class="hidden">
@@ -99,31 +151,57 @@
         </div>
     </div>
 
-    <!-- <section id="tours" class="tours-section">
-        <h2>Guided Tours</h2>
-        <p>Join our guided tours for a deep cultural experience and adventure.</p>
-        <div class="tour-packages">
-            <div class="package">
-                <h3>Europe Tour</h3>
-                <p>10 Days - From $2000</p>
-            </div>
-            <div class="package">
-                <h3>Asian Adventure</h3>
-                <p>12 Days - From $1800</p>
-            </div>
-            <div class="package">
-                <h3>Africa Safari</h3>
-                <p>7 Days - From $1500</p>
-            </div>
-        </div>
-    </section> -->
-
+    <!-- Registration and Login Section -->
+    <div id="register-section" class="register">
+        <h2>Register</h2>
+        <form id="register-form">
+            <label for="register-username">Username:</label>
+            <input type="text" id="register-username" name="register-username" required>
+            
+            <label for="register-password">Password:</label>
+            <input type="password" id="register-password" name="register-password" required>
+            
+            <button type="submit" class="btn">Register</button>
+        </form>
+        <p id="register-message"></p>
+    </div>
+    <!-- Login Section -->
+    <div id="login-section" class="login">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p id="login-message"></p>
+    </div>
+    
     <footer id="contact" class="footer">
         <div class="contact-info">
             <h2>Contact Us</h2>
             <p>Email: netourismguide@gmail.com</p>
             <p>Phone: +91 1234567890</p>
         </div>
+
+         <!-- Add a Review Form -->
+         <div class="review-section">
+            <h2>Leave a Review</h2>
+            <form id="review-form">
+                <input type="text" id="reviewer-name" placeholder="Your Name" required>
+                <textarea id="review-text" placeholder="Write your review here..." required></textarea>
+                <button type="submit" class="btn">Submit Review</button>
+            </form>
+            
+            <h3>Recent Reviews</h3>
+            <div id="reviews-container">
+                <!-- Reviews will be displayed here -->
+            </div>
+        </div>
+
         <div class="social-media">
             <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
         </div>
